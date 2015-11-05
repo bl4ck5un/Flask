@@ -1,0 +1,31 @@
+img[alt=email] {
+  display: inline;
+  vertical-align: middle;
+}
+
+time.post-list {
+  display: inline-block;
+  min-width: 4rem;
+}
+
+/* Outer div */
+span.datetime {
+  // border:1px solid #000;
+  width: 1.5rem;
+  // display: block;
+  vertical-align: middle;
+}
+
+span.datetime p {
+  margin:0;
+  padding:0;
+  line-height: 1;
+  text-align:center;
+  font-size:x-small;
+}
+
+span.datetime p:first-child {
+    // background-color: black;
+    // color: white;
+    text-transform: uppercase;
+}

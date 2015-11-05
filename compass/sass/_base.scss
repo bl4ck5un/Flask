@@ -1,0 +1,8 @@
+$min-width-with-sidebar: 720px;
+
+
+$sidebar-padding-left: 1rem;
+$sidebar-padding-right: 1rem;
+$sidebar-width: 16rem;
+
+$content-left-margin: $sidebar-width + $sidebar-padding-left + $sidebar-padding-right;
