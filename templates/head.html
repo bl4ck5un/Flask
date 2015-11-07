@@ -29,6 +29,11 @@
     </ul>
 </div>
 
+{% for message in get_flashed_messages() %}
+  <div class=flash>{{ message }}</div>
+{% endfor %}
+
+
 <div class="container">
   <div class="content">
   {% block content %}
@@ -49,6 +54,11 @@
 <footer>
   <div> Copyright &copy Fan 2014-2015</div>
   <div> Last updated at LASTUPDATE </div>
+  {% if session.logged_in %}
+      <div>Logged in as {{ session.username }} (<a href="/logout">logout</a>)</div>
+  {% else %}
+      <div><a href="/login">Log In</a></div>
+  {% endif %}
 </footer>
 </body>
 </html>

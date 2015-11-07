@@ -644,7 +644,7 @@ tbody tr:nth-child(odd) th {
 
 /* line 75, ../compass/sass/_layout.scss */
 .container {
-  max-width: 50rem;
+  max-width: 40rem;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1rem;
