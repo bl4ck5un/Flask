@@ -1,0 +1,26 @@
+{
+  "name": "blog",
+  "homepage": "https://github.com/bl4ck5un/blog-flask",
+  "authors": [
+    "Fan Zhang <bl4ck5unxx@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic-ui-message": "~2.1.6",
+    "semantic-ui-button": "~2.1.6",
+    "semantic-ui-form": "~2.1.6",
+    "semantic-ui-icon": "~2.1.6",
+    "jquery": "~2.1.4"
+  }
+}

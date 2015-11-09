@@ -1,15 +1,24 @@
 {% extends "head.html" %}
 {% block content %}
   <h2>Login</h2>
-  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
-  <form action="{{ url_for('login') }}" method=post>
-    <dl>
-      <dt>Username:
-      <dd><div class="ui input"><input type=text name=username class="ui input"></div>
-      <dt>Password:
-      <dd><div class="ui input"><input type=password name=password></div>
-      <dd><button type=submit class="ui button">Login</button>
+  {% if error %}
+  <div class="ui error message">
+    <i class="close icon"></i>
+    <div class="header">Error</div>
+    {{ error }}
+  </div>
+  {% endif %}
+
+    <form class="ui form" action="{{ url_for('login') }}" method=post>
+      <div class="field">
+        <label>User ID</label>
+        <input type=text name=username>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type=password name=password>
+      </div>
+      <button class="ui button" type="submit">Login</button>
       <input type=hidden value="{{ next or '' }}" name=next>
-    </dl>
-  </form>
+    </form>
 {% endblock %}
