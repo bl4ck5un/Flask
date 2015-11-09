@@ -4,5 +4,5 @@ $(function(){
     $(this).closest('.message').fadeOut();
   });
 
-  $('#top-message').delay(3000).fadeOut();
+  $('#top-message').delay(2000).fadeOut();
 });
