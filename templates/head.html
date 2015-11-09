@@ -5,7 +5,6 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='screen.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='highlight.css') }}">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/semantic-ui-form/form.min.css') }}">
@@ -13,6 +12,8 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/semantic-ui-button/button.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/semantic-ui-message/message.min.css') }}">
 
+  <link rel="stylesheet" href="{{ url_for('static', filename='screen.css') }}">
+  
   <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js')}}"></script>
   <script src="{{ url_for('static', filename='main.js')}}"></script>
   <script src="{{ url_for('static', filename='bower_components/semantic-ui-form/form.min.js')}}"></script>
@@ -20,6 +21,11 @@
 </head>
 
 <body>
+  {% for message in get_flashed_messages() %}
+  <div id="top-message" class="message">
+    <p>{{ message }}<i class="close icon"></i></p>
+  </div>
+  {% endfor %}
 
 <div class="sidebar">
     <div class="sidebar-about">
@@ -33,12 +39,8 @@
     </ul>
 </div>
 
-{% for message in get_flashed_messages() %}
-  <div class=flash>{{ message }}</div>
-{% endfor %}
-
-
 <div class="container">
+
   <div class="content">
   {% block content %}
   {% endblock %}
