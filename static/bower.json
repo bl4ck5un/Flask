@@ -22,6 +22,9 @@
     "semantic-ui-form": "~2.1.6",
     "semantic-ui-icon": "~2.1.6",
     "jquery": "~2.1.4",
-    "semantic-ui-input": "~2.1.6"
+    "semantic-ui-input": "~2.1.6",
+    "semantic-ui-header": "~2.1.6",
+    "semantic-ui-segment": "~2.1.6",
+    "semantic-ui-transition": "~2.1.6"
   }
 }

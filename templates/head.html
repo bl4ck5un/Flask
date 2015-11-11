@@ -11,19 +11,28 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/semantic-ui-icon/icon.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/semantic-ui-button/button.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/semantic-ui-message/message.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/semantic-ui-header/header.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/semantic-ui-segment/segment.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/semantic-ui-transition/transition.min.css') }}">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='screen.css') }}">
 
   <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js')}}"></script>
   <script src="{{ url_for('static', filename='main.js')}}"></script>
   <script src="{{ url_for('static', filename='bower_components/semantic-ui-form/form.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='bower_components/semantic-ui-transition/transition.min.js')}}"></script>
   <title>{{ title }}</title>
 </head>
 
 <body>
   {% for message in get_flashed_messages() %}
   <div id="top-message" class="message">
-    <p>{{ message }}<i class="close icon"></i></p>
+    <p>{{ message }} <i class="close icon"></i></p>
+    <script>
+      setTimeout(function() {
+        $('#top-message i.close').click();
+      }, 3000);
+    </script>
   </div>
   {% endfor %}
 
