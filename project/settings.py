@@ -78,7 +78,7 @@ TEMPLATES = [
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config(default='postgres://:@localhost:5432/django')
 DATABASES['default']['CONN_MAX_AGE'] = 500
 DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 
