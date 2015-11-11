@@ -2,7 +2,7 @@ require 'compass/import-once/activate'
 
 # Set this to the root of your project when deployed:
 # http_path = "http://fanzy.me/"
-css_dir = "../static"
+css_dir = "../../static"
 sass_dir = "sass"
 images_dir = "images"
 javascripts_dir = "javascripts"
