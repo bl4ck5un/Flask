@@ -1,0 +1,21 @@
+{% extends "head.html" %}
+
+{% block content %}
+
+
+
+
+<h2>{{ content.title }}</h2>
+<div class="post meta">
+  <ul>
+    <li>{{content.add_date}}</li>
+  </ul>
+</div>
+<div class="post">
+  {{ content.content }}
+</div>
+
+
+
+
+{% endblock %}

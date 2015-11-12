@@ -63,3 +63,4 @@ target/
 # Compass
 compass/.sass-cache
 bower_components
+staticfiles

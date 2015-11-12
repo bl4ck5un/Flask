@@ -1,7 +1,14 @@
 from django.contrib import admin
+from forms import ArticleForm
 from models import Article
 from models import Tag
 
-# Register your models here.
-admin.site.register(Article)
+
+class ArticleAdmin(admin.ModelAdmin):
+    form = ArticleForm
+    prepopulated_fields = {
+        'slug' : ('title', )
+    }
+
+admin.site.register(Article, ArticleAdmin)
 admin.site.register(Tag)
