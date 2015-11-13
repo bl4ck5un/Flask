@@ -1,6 +1,5 @@
 !dist
 src
-*.map
 *.json
 *.txt
 *.md
