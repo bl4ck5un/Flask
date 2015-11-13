@@ -64,3 +64,8 @@ target/
 compass/.sass-cache
 staticfiles
 !/bower.json
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

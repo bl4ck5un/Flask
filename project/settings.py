@@ -78,10 +78,11 @@ TEMPLATES = [
 # https://devcenter.heroku.com/articles/getting-started-with-django
 
 # Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config(default='postgres://:@localhost:5432/django')
-DATABASES['default']['CONN_MAX_AGE'] = 500
-DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+#
+# import dj_database_url
+# DATABASES['default'] =  dj_database_url.config(default='postgres://:@localhost:5432/django')
+# DATABASES['default']['CONN_MAX_AGE'] = 500
+# DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
