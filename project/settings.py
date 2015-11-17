@@ -18,6 +18,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'blogging',
     'pagedown',
+    'bib2html',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -103,4 +104,14 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+BIBTEX_HIGHLIGHT_AUTHOR = (
+    'Fan Zhang',
+    'Zhang, Fan',
+    'F. Zhang',
+)
+
+BIBTEX_FILES = (
+    os.path.join(BASE_DIR, 'static/publications.bib'),
+)
+
+BIBTEX_OUTPUT = os.path.join(BASE_DIR, 'templates/publication/bin.html')
