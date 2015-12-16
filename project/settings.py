@@ -88,6 +88,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'semantic/dist')
 )
 
 BIBTEX_HIGHLIGHT_AUTHOR = (

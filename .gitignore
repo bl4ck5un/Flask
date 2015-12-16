@@ -71,3 +71,4 @@ staticfiles
 !.elasticbeanstalk/*.global.yml
 .idea
 .ropeproject
+node_modules
