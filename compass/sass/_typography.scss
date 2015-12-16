@@ -3,6 +3,12 @@
 $site-name-font: "Lato"; // "Patrick Hand";
 $hd-font-family: "Lato"; // "Kreon";
 $text-font-family: "Lato"; //"Crimson Text";
+
+// Changed on 16 Dec 2015
+$site-name-font: "Alegreya"; // "Patrick Hand";
+$hd-font-family: "Alegreya"; // "Kreon";
+$text-font-family: "Alegreya"; //"Crimson Text";
+
 $hd-font-family: $text-font-family;
 @include web-fonts($text-font-family, $hd-font-family, $site-name-font);
 
@@ -16,10 +22,10 @@ Vertical Rhythm from:
 http://www.sitepoint.com/using-sass-build-custom-type-scale-vertical-rhythm/
 */
 $bp-sizes: (
-  default:  ( base-font-size: 14px, base-line-height: 1.5, scale: 1.25 ),
-  small:    ( base-font-size: 14px, base-line-height: 1.5, scale: 1.25 ),
-  medium:   ( base-font-size: 16px, base-line-height: 1.5, scale: 1.25 ),
-  large:    ( base-font-size: 18px, base-line-height: 1.5, scale: 1.25 )
+  default:  ( base-font-size: 16px, base-line-height: 1.5, scale: 1.25 ),
+  small:    ( base-font-size: 16px, base-line-height: 1.5, scale: 1.25 ),
+  medium:   ( base-font-size: 18px, base-line-height: 1.5, scale: 1.25 ),
+  large:    ( base-font-size: 20px, base-line-height: 1.5, scale: 1.25 )
 );
 
 $breakpoints: (
@@ -74,6 +80,7 @@ $font-sizes: (p, bq, ssh, sh, h, hero);
     }
   }
 }
+
 .hero {
   @extend %hero;
 }
@@ -104,9 +111,7 @@ h4,
 h5,
 h6 {
   font-weight: bold;
-  // color: #313131;
   text-rendering: optimizeLegibility;
-  font-family: $hd-font-family, sans-serif;
 }
 h5, h4, p {
   margin-top: .5rem;

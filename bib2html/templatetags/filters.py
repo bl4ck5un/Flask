@@ -34,5 +34,7 @@ def author_join(value):
         return value[0]
     elif len(value) == 2:
         return value[0] + two + value[1]
-    else:
+    elif len(value) == 3:
         return d.join(value[:-1]) + last + value[-1]
+    else:
+        return d.join(value[:3]) + ' <em>et al.</em>'

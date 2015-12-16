@@ -1,4 +1,4 @@
-/* Book format ********************************/
+/* Book format */
 .book.author{
 }
 
@@ -14,10 +14,9 @@
 
 .book.year{
 }
-/**********************************************/
 
 
-/* Conference format **************************/
+/* Conference format */
 .inproceedings.author{
 }
 
@@ -42,10 +41,9 @@
 
 .inproceedings.year{
 }
-/**********************************************/
 
 
-/* Journal format *****************************/
+/* Journal format */
 .article.author{
 }
 

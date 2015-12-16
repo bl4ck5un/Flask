@@ -14,53 +14,7 @@ from django.conf import settings
 import readline
 
 
-# ###############
-# JINJA FILTERS #
-# ###############
-
-def ordinal(value):
-    """ Cardinal to ordinal conversion for the edition field """
-    try:
-        digit = int(value)
-    except:
-        return value.split(' ')[0]
-
-    if digit < 1:
-        return digit
-
-    if digit % 100 == 11 or digit % 100 == 12 or digit % 100 == 13:
-        return value + 'th'
-    elif digit % 10 == 3:
-        return value + 'rd'
-    elif digit % 10 == 2:
-        return value + 'nd'
-    elif digit % 10 == 1:
-        return value + 'st'
-    else:
-        return value + 'th'
-
-def author_join(value, d=u', ', last=u', and ', two=u' and '):
-    """ Like join but for list of names (convenient authors list) """
-    if len(value) == 1:
-        return value[0]
-    elif len(value) == 2:
-        return value[0] + two + value[1]
-    else:
-        return d.join(value[:-1]) + last + value[-1]
-
-
-# ##############################
-# BIBTEX PARSER CUSTOMIZATIONS #
-# ##############################
-
-def customizations(entry):
-    entry = clear_empty(entry)
-    entry = author(entry)
-    entry = page_endash(entry)
-    entry = convert_to_unicode(entry)
-    entry = clean_latex(entry)
-
-    return entry
+# BIBTEX PARSER CUSTOMIZATIONS
 
 
 def clear_empty(entry):
@@ -76,8 +30,15 @@ def clear_empty(entry):
 def author(entry):
     """ Convert author field to list """
     if 'author' in entry:
-        entry['author'] = [name for name in entry['author'].replace('\n', ' ').split(' and ')
-                           if name.strip()]
+        authors = [name for name in entry['author'].replace('\n', ' ').split(' and ') if name.strip()]
+
+        # transform "Fan, Zhang" to ["Fan", "Zhang"]
+        authors = map(lambda x: x.split(","), authors)
+        authors = map(lambda x: x[1].strip()[0] + '. ' + x[0].strip(), authors)
+
+        for a in settings.BIBTEX_HIGHLIGHT_AUTHOR:
+            authors = map(lambda x: '<strong>' + x + '</strong>' if a == x else x, authors)
+        entry['author'] = authors
 
     return entry
 
@@ -86,7 +47,7 @@ def page_endash(entry):
     """ Separate pages by an HTML endash (&ndash;) """
     if "pages" in entry:
         p = re.findall('\d+', entry["pages"])
-        entry["pages"] = p[0] + '&ndash;' + p[-1]
+        entry["pages"] = p[0] + '-' + p[-1]
     return entry
 
 
@@ -113,6 +74,16 @@ def clean_latex(entry, fields=['title']):
 
     return entry
 
+
+def customizations(entry):
+    entry = clear_empty(entry)
+    entry = author(entry)
+    entry = page_endash(entry)
+    entry = convert_to_unicode(entry)
+    entry = clean_latex(entry)
+
+    return entry
+
 class Command(BaseCommand):
     def __init__(self, *args, **kwargs):
         super(Command, self).__init__(*args, **kwargs)
@@ -124,28 +95,26 @@ class Command(BaseCommand):
 
         db = []
         for bib in bibtex_files:
-            print bib
+            print "Processing BibTeX file %s" % bib
             try:
                 parser = BibTexParser()
                 parser.customization = customizations
-                with open(bib, 'r') as inputFile:
-                    dbTemp = bibtexparser.load(inputFile, parser=parser).entries
+                with open(bib, 'r') as inf:
+                    dbTemp = bibtexparser.load(inf, parser=parser).entries
                 for entryTemp in dbTemp:
-                    if not any(
-                            entryTemp['title'].lower() == entry['title'].lower()
-                            for entry in db):
+                    if not any(entryTemp['title'].lower() == entry['title'].lower() for entry in db):
                         db.append(deepcopy(entryTemp))
 
             except:
                 traceback.print_exc()
-                print ('An error occured while processing [' +
-                    bib + ']. Its content will be ignored.')
+                print ('An error occured while processing [' + bib + ']. Its content will be ignored.')
 
+        # Start rendering HTML
         try:
             for entry in db:
-                print 'bib2html/ieee/' + entry['ENTRYTYPE'] + '.html'
+                print entry
+                print 'Using template bib2html/ieee/' + entry['ENTRYTYPE'] + '.html'
                 bibTemplate = get_template('bib2html/ieee/' + entry['ENTRYTYPE'] + '.html')
-
                 entry['formatted'] = bibTemplate.render(entry)
         except:
             traceback.print_exc()

@@ -25,17 +25,6 @@
 </head>
 
 <body>
-  {# {% for message in get_flashed_messages() %}#}
-  {# <div id="top-message" class="message">#}
-    {# <p>{{ message }} <i class="close icon"></i></p>#}
-    {# <script>#}
-      {# setTimeout(function() {#}
-        {# $('#top-message i.close').click();#}
-      {# }, 3000);#}
-    {# </script>#}
-  {# </div>#}
-  {# {% endfor %}#}
-
 <div class="sidebar">
     <div class="sidebar-about">
       <h1 id="site-title">Fan@CU</h1>
@@ -56,13 +45,10 @@
 </div>
 
 <footer>
-  <div> Copyright &copy Fan 2014-2015</div>
-  <div> Last updated at LASTUPDATE </div>
-  {% if session.logged_in %}
-      <div>Logged in as {{ session.username }} (<a href="/logout">logout</a>)</div>
-  {% else %}
-      <div><a href="/admin">Log In</a></div>
-  {% endif %}
+    <div> Copyright &copy Fan 2014-2015</div>
+    {# FIXME update LASTUPDATE #}
+    <div> Last updated at LASTUPDATE </div>
+    <div><a href="/admin">Log In</a></div>
 </footer>
 </body>
 </html>
