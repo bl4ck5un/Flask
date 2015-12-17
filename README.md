@@ -23,3 +23,9 @@ complete list of components.
 1. Switch to the test environment
 
     source env/bin/activate
+
+## Thanks
+
+1. `font-face` resources:
+   [CSS-Trick](https://css-tricks.com/snippets/css/using-font-face/) and 
+   `font-face generator` on [FontSquirrel](http://www.fontsquirrel.com).
