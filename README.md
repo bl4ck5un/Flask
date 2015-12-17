@@ -11,6 +11,11 @@
 2. Generate publication lists
 
     python manage.py genpublications
+
+## Semantic-ui
+
+See [here] (http://semantic-ui.com/introduction/build-tools.html) for a 
+complete list of components.
     
 
 ## Local Test

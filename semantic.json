@@ -17,5 +17,12 @@
   },
   "permission": false,
   "rtl": false,
+  "components" : [
+      "site",
+      "reset",
+      "grid",
+      "container",
+      "header"
+  ],
   "version": "2.1.6"
 }
