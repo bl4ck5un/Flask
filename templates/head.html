@@ -20,6 +20,8 @@
 </head>
 
 <body>
+
+<div class="ui center aligned container">
 <div class="sidebar">
     <div class="sidebar-about">
       <h1 id="site-title">Fan@CU</h1>
@@ -31,18 +33,21 @@
       <li><a href="/about" class="sidebar-nav-item">About Me</a></li>
     </ul>
 </div>
+</div> <!-- end of top -->
 
-<div class="container">
+<div class="ui container">
   <div class="content">
   {% block content %}
   {% endblock %}
   </div>
-</div>
+</div>  <!-- end of content -->
 
-<footer>
+<div class="ui center aligned container">
+  <footer>
     <div> Copyright &copy Fan 2014-2015</div>
     <div> Last updated at 16-Dec-2015 </div>
     <div><a href="/admin">Log In</a></div>
-</footer>
+  </footer>
+</div>
 </body>
 </html>

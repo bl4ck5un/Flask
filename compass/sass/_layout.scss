@@ -50,35 +50,10 @@ img {
   max-width: 90%;
 }
 
-/* Tables */
-table {
-  margin-bottom: 1rem;
-  width: 100%;
-  border: 1px solid #e5e5e5;
-  border-collapse: collapse;
-}
-td,
-th {
-  padding: .25rem .5rem;
-  border: 1px solid #e5e5e5;
-}
-tbody tr:nth-child(odd) td,
-tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
-}
-
-.lead {
-  font-size: 1.25rem;
-  font-weight: 300;
-}
-
-.container {
+.content {
   max-width: 40rem;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1rem;
-  // border: 1px solid black;
-}
-.content {
   padding: 1rem 3rem;
 }
